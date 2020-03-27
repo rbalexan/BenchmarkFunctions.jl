@@ -1,15 +1,15 @@
 """
-    gramacy_lee(x)
+    gramacy_lee(X)
 
-Compute the 1D Gramacy-Lee function on sample matrix `x`.
+Compute the 1-dimensional Gramacy-Lee function on sample vector `X`.
 
 The function is usually evaluated on `x` ∈ [-0.5, 2.5].
 """
-function gramacy_lee(x)
+function gramacy_lee(X)
 
-    @assert size(x, 2) == 1 "Sample matrix must be of size (n, 1)."
+    @assert all(length.(X) .== 1) "Sample vector tuples must be length 1."
 
-    y = sin.(10π*x)./(2x) + (x.-1).^4
+    y = [Tuple(sin(10π*x[1])/(2x[1]) + (x[1]-1)^4) for x in X]
 
     return y
 

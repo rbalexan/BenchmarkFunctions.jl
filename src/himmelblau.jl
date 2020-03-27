@@ -1,18 +1,15 @@
 """
-    himmelblau(x)
+    himmelblau(X)
 
-Compute the 2D Himmelblau function on sample matrix `x`.
+Compute the 2-dimensional Himmelblau function on sample vector `X`.
 
 The function is usually evaluated on `xᵢ` ∈ [-6, 6] for `i` = 1, 2.
 """
-function himmelblau(x)
+function himmelblau(X)
 
-    @assert size(x, 2) == 2 "Sample matrix must be of size (n, 2)."
+    @assert all(length.(X) .== 2) "Sample vector tuples must be length 2."
 
-    x1 = x[:,1]
-    x2 = x[:,2]
-
-    y = (x1.^2 + x2 .- 11).^2 + (x1 + x2.^2 .- 7).^2
+    y = [Tuple((x[1]^2+x[2]-11)^2 + (x[1]+x[2]^2-7)^2) for x in X]
 
     return y
 

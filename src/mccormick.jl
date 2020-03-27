@@ -1,18 +1,15 @@
 """
-    mccormick(x)
+    mccormick(X)
 
-Compute the 2D McCormick function on sample matrix `x`.
+Compute the 2-dimensional McCormick function on sample vector `X`.
 
 The function is usually evaluated on `x₁` ∈ [-1.5, 4] and `x₂` ∈ [-3, 3]
 """
-function mccormick(x)
+function mccormick(X)
 
-    @assert size(x, 2) == 2 "Sample matrix must be of size (n, 2)."
+    @assert all(length.(X) .== 2) "Sample vector tuples must be length 2."
 
-    x1 = x[:,1]
-    x2 = x[:,2]
-
-    y = sin.(x1 + x2) + (x1 - x2).^2 - 1.5*x1 + 2.5*x2 .+ 1
+    y = [Tuple(sin(x[1]+x[2]) + (x[1]-x[2])^2 - 1.5*x[1] + 2.5*x[2] + 1) for x in X]
 
     return y
 
