@@ -39,3 +39,18 @@ contourf(x1, x2, permutedims(reshape(getindex.(y, 1), length(x1), :), [2, 1]),
         xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
         xlims=(-1.5,4), ylims=(-3,3), box=:on, aspect_ratio=:equal,
         title="McCormick function")
+
+# plot Rosenbrock (2D) function
+x1 = -2:0.1:2
+x2 = -2:0.1:2
+X = ndgrid((x1,x2))
+y = rosenbrock(X)
+
+surface(getindex.(X, 1), getindex.(X, 2), getindex.(y, 1),
+        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
+        xlims=(-2,2), ylims=(-2,2), box=:on, title="Rosenbrock function")
+
+contourf(x1, x2, permutedims(reshape(getindex.(y, 1), length(x1), :), [2, 1]),
+        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis,
+        xlims=(-2,2), ylims=(-2,2), box=:on, aspect_ratio=:equal,
+        title="Rosenbrock function")
