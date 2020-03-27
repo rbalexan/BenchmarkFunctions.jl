@@ -1,11 +1,11 @@
 """
-    ndgrid(grids)
+    ndgrid(grids...)
 
-Create an n-dimensional grid over `grids` -- a tuple of iterables along each dimension.
+Create an n-dimensional grid over `grids` -- iterables along each dimension.
 
 # Examples
 ```jldoctest
-julia> ndgrid((0:1,))
+julia> ndgrid(0:1)
 2-element Array{Tuple{Int64},1}:
  (0,)
  (1,)
@@ -20,7 +20,7 @@ julia> ndgrid((0:1,0:1))
  (1, 1)
  ```
 """
-function ndgrid(grids)
+function ndgrid(grids...)
 
     return vec(collect(Iterators.product(grids...)))
 
