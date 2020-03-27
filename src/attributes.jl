@@ -17,20 +17,48 @@ function attributes()
     println(" - differentiability: differentiable, non-differentiable")
     println(" - convexity:         convex, non-convex")
     println(" - modality:          unimodal, multimodal")
-    println(" - other:             separable, parametric, random")
+    println(" - separability:      separable, non-separable")
+    println(" - other:             parametric, random")
 
     return
 
 end
 
+functionDict = Dict("gramacy_lee"  => Set(["1d", "continuous", "differentiable",     "non-convex", "multimodal"]),
+                    "adjiman"      => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
+                    "bartels_conn" => Set(["2d", "continuous", "non-differentiable", "non-convex", "multimodal", "non-separable"]),
+                    "himmelblau"   => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "separable"]),
+                    "mccormick"    => Set(["2d", "continuous", "differentiable",     "convex",     "multimodal", "separable"]),
+                    "rosenbrock"   => Set(["nd", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]))
+
 function attributes(string::AbstractString)
 
-    # use Dictionary or Set mapping, get keys, format properly
+    if string in keys(functionDict)
 
-    if string == "himmelblau"
+        functionAttributes = functionDict[string]
+        println("\nAttributes of `" * string * "` function:")
 
-        println("\nHimmelblau function")
-        println(" - 2d, continuous, differentiable, non-convex, multimodal")
+        for attribute in functionAttributes
+            println(" - `" * attribute * "`")
+        end
+
+    elseif string in union(values(functionDict)...)
+
+        # do reverse lookup by attribute
+        functionsWithAttribute = filter(p -> (string in p.second), functionDict)
+
+        println("\nFunctions with `" * string * "` attribute:")
+
+        for functionWithAttribute in functionsWithAttribute
+
+            functionName = functionWithAttribute.first
+            println(" - `" * functionName * "`")
+
+        end
+
+    else
+
+        @error "Not a valid function or attribute."
 
     end
 

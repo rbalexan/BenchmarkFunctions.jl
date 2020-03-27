@@ -5,16 +5,18 @@ using Random
 # utils
 include("attributes.jl")
 include("ndgrid.jl")
-export attibutes, ndgrid
+export attributes, ndgrid
 
 # 1-dimensional
 include("gramacy_lee.jl")
 export gramacy_lee
 
 # 2-dimensional
+include("adjiman.jl")
+include("bartels_conn.jl")
 include("himmelblau.jl")
 include("mccormick.jl")
-export himmelblau, mccormick
+export adjiman, bartels_conn, himmelblau, mccormick
 
 # n-dimensional
 include("rosenbrock.jl")
