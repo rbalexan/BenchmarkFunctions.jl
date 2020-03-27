@@ -1,18 +1,23 @@
 module BenchmarkFunctions
 
-    using Random
+using Random
 
-    include("attributes.jl")
-    include("ndgrid.jl")
+# utils
+include("attributes.jl")
+include("ndgrid.jl")
+export attibutes, ndgrid
 
-    # 1-dimensional
-    include("gramacy_lee.jl")
+# 1-dimensional
+include("gramacy_lee.jl")
+export gramacy_lee
 
-    # 2-dimensional
-    include("himmelblau.jl")
-    include("mccormick.jl")
+# 2-dimensional
+include("himmelblau.jl")
+include("mccormick.jl")
+export himmelblau, mccormick
 
-    # n-dimensional
-    include("rosenbrock.jl")
+# n-dimensional
+include("rosenbrock.jl")
+export rosenbrock
 
 end
