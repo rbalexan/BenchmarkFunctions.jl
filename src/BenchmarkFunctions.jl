@@ -1,11 +1,14 @@
 module BenchmarkFunctions
 
 using Random
+using Plots
+using LaTeXStrings
 
 # utils
 include("attributes.jl")
 include("ndgrid.jl")
-export attributes, ndgrid
+include("plot.jl")
+export attributes, ndgrid, plot
 
 # 1-dimensional
 include("gramacy_lee.jl")

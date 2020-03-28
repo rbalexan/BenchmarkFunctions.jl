@@ -1,88 +1,26 @@
-# `] activate .`
+# `]activate .`
 using BenchmarkFunctions
 using Plots
 pyplot()
 
-## plot Gramacy-Lee function
-x1 = -0.5:0.001:2.5
-X = ndgrid(x1)
-y = gramacy_lee(X)
+## plot 1D functions
+plot("gramacy_lee",  -0.5:0.001:2.5)
+savefig("./plots/1d_gramacy_lee.svg")
 
-plot(getindex.(X, 1), getindex.(y, 1),
-        box=:on, xlabel="x", ylabel="y", legend=:none,
-        title="Gramacy-Lee function")
+## plot 2D functions
+plot("adjiman",      -4.0:0.1:4.0, -4.0:0.1:4.0)
+savefig("./plots/2d_adjiman.svg")
+plot("bartels_conn", -4.0:0.1:4.0, -4.0:0.1:4.0)
+savefig("./plots/2d_bartels_conn.svg")
+plot("himmelblau",   -6.0:0.1:6.0, -6.0:0.1:6.0)
+savefig("./plots/2d_himmelblau.svg")
+plot("mccormick",    -1.5:0.1:4.0, -3.0:0.1:3.0)
+savefig("./plots/2d_mccormick.svg")
 
-## plot Himmelblau function
-x1 = x2 = -6:0.1:6
-X = ndgrid(x1,x2)
-y = himmelblau(X)
-
-surface(getindex.(X, 1), getindex.(X, 2), getindex.(y, 1),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
-        xlims=(-6,6), ylims=(-6,6), clims=(0,100), box=:on,
-        title="Himmelblau function")
-
-contourf(x1, x2, permutedims(reshape(getindex.(y, 1), length(x1), :), [2, 1]),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
-        xlims=(-6,6), ylims=(-6,6), clims=(0,100), box=:on, levels=200,
-        aspect_ratio=:equal, title="Himmelblau function")
-
-## plot McCormick function
-x1 = -1.5:0.1:4
-x2 = -3:0.1:3
-X = ndgrid(x1,x2)
-y = mccormick(X)
-
-surface(getindex.(X, 1), getindex.(X, 2), getindex.(y, 1),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
-        xlims=(-1.5,4), ylims=(-3,3), box=:on, title="McCormick function")
-
-contourf(x1, x2, permutedims(reshape(getindex.(y, 1), length(x1), :), [2, 1]),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
-        xlims=(-1.5,4), ylims=(-3,3), box=:on, aspect_ratio=:equal,
-        title="McCormick function")
-
-## plot Rosenbrock (2D) function
-x1 = -2:0.1:2
-x2 = -2:0.1:2
-X = ndgrid(x1,x2)
-y = rosenbrock(X)
-
-surface(getindex.(X, 1), getindex.(X, 2), getindex.(y, 1),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
-        xlims=(-2,2), ylims=(-2,2), box=:on, title="Rosenbrock function")
-
-contourf(x1, x2, permutedims(reshape(getindex.(y, 1), length(x1), :), [2, 1]),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis,
-        xlims=(-2,2), ylims=(-2,2), box=:on, aspect_ratio=:equal,
-        title="Rosenbrock function")
-
-## plot Adjiman (2D) function
-x1 = -4:0.1:4
-x2 = -4:0.1:4
-X = ndgrid(x1,x2)
-y = adjiman(X)
-
-surface(getindex.(X, 1), getindex.(X, 2), getindex.(y, 1),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
-        xlims=(-4,4), ylims=(-4,4), box=:on, title="Adjiman function")
-
-contourf(x1, x2, permutedims(reshape(getindex.(y, 1), length(x1), :), [2, 1]),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis,
-        xlims=(-4,4), ylims=(-4,4), box=:on, aspect_ratio=:equal,
-        title="Adjiman function")
-
-## plot Bartels-Conn (2D) function
-x1 = -4:0.1:4
-x2 = -4:0.1:4
-X = ndgrid(x1,x2)
-y = bartels_conn(X)
-
-surface(getindex.(X, 1), getindex.(X, 2), getindex.(y, 1),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis_r,
-        xlims=(-4,4), ylims=(-4,4), box=:on, title="Bartels-Conn function")
-
-contourf(x1, x2, permutedims(reshape(getindex.(y, 1), length(x1), :), [2, 1]),
-        xlabel="x1", ylabel="x2", zlabel="y", color=:viridis,
-        xlims=(-4,4), ylims=(-4,4), box=:on, aspect_ratio=:equal,
-        title="Bartels-Conn function")
+## plot nD functions
+plot("ackley",     -10.0:0.01:10.0)
+savefig("./plots/nd_ackley_1d.svg")
+plot("ackley",     -10.0:0.1 :10.0, -10.0:0.1:10.0)
+savefig("./plots/nd_ackley_2d.svg")
+plot("rosenbrock",  -2.0:0.1 : 2.0,  -2.0:0.1: 2.0)
+savefig("./plots/nd_rosenbrock_2d.svg")
