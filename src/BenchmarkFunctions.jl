@@ -19,7 +19,8 @@ include("mccormick.jl")
 export adjiman, bartels_conn, himmelblau, mccormick
 
 # n-dimensional
+include("ackley.jl")
 include("rosenbrock.jl")
-export rosenbrock
+export ackley, rosenbrock
 
 end
