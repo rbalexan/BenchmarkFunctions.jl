@@ -16,14 +16,16 @@ export gramacy_lee
 
 # 2-dimensional
 include("adjiman.jl")
+include("ackley_2.jl")
+include("ackley_3.jl")
 include("bartels_conn.jl")
 include("himmelblau.jl")
 include("mccormick.jl")
-export adjiman, bartels_conn, himmelblau, mccormick
+export adjiman, ackley_2, ackley_3, bartels_conn, himmelblau, mccormick
 
 # n-dimensional
-include("ackley.jl")
+include("ackley_1.jl")
 include("rosenbrock.jl")
-export ackley, rosenbrock
+export ackley_1, rosenbrock
 
 end
