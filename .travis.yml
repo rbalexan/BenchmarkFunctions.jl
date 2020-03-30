@@ -11,10 +11,16 @@ julia:
 branches:
   only:
     - master
-after_success:
-  - if [[ $TRAVIS_JULIA_VERSION = 1.4 ]] && [[ $TRAVIS_OS_NAME = linux ]]; then
-      julia --project=test/coverage -e 'using Pkg; Pkg.instantiate();
-          using Coverage; Codecov.submit(Codecov.process_folder())';
-    fi
 notifications:
   email: false
+matrix:
+  allow_failures:
+    - julia: nightly
+  fast_finish: true
+script:
+  - git clone https://github.com/JuliaRegistries/General  $(julia -e 'import Pkg; println(joinpath(Pkg.depots1(), "registries", "General"))')  
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia --project --color=yes -e 'import Pkg; Pkg.build(); Pkg.test(coverage=true)'
+after_success:
+  - julia -e 'cd(Pkg.dir("InfrastructureSensing")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(process_folder())'
+
