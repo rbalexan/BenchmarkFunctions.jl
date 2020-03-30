@@ -32,12 +32,12 @@ function Plots.plot(benchmarkFunctionName::String, grids...)
         end
 
         surface(getindex.(X, 1), getindex.(X, 2), getindex.(y, 1),
-                xlabel=L"x_1", ylabel=L"x_2", zlabel=L"y", color=:viridis_r,
+                xlabel=L"x_1", ylabel=L"x_2", zlabel=L"y", color=:viridis,
                 box=:on, colorbar=false, title=(benchmarkFunctionName * " Function"),
                 layout=grid(1,2), subplot=1, size=(1000,400))
 
         contourf!(grids[1], grids[2], permutedims(reshape(getindex.(y, 1), length(grids[1]), :), [2, 1]),
-                xlabel=L"x_1", ylabel=L"x_2", color=:viridis_r,
+                xlabel=L"x_1", ylabel=L"x_2", color=:viridis,
                 xlims=(minimum(grids[1]), maximum(grids[1])),
                 ylims=(minimum(grids[2]), maximum(grids[2])),
                 box=:on, aspect_ratio=:equal,

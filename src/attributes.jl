@@ -32,6 +32,7 @@ functionDict = Dict("gramacy_lee"  => Set(["1d", "continuous", "differentiable",
                     "himmelblau"   => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "separable"]),
                     "mccormick"    => Set(["2d", "continuous", "differentiable",     "convex",     "multimodal", "separable"]),
                     "ackley_1"     => Set(["nd", "continuous", "differentiable",     "non-convex", "multimodal", "separable"]),
+                    "ackley_4"     => Set(["nd", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
                     "rosenbrock"   => Set(["nd", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]))
 
 function attributes(string::AbstractString)
