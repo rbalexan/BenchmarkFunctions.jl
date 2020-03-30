@@ -23,5 +23,5 @@ script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia --project --color=yes -e 'import Pkg; Pkg.build(); Pkg.test(coverage=true)'
 after_success:
-  - julia -e 'cd(Pkg.dir("BenchmarkFunctions")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(process_folder())'
+  - julia --project -e 'import Pkg; Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
 
