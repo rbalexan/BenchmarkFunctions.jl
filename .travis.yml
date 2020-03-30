@@ -16,6 +16,7 @@ notifications:
 matrix:
   allow_failures:
     - julia: nightly
+    - os: windows
   fast_finish: true
 script:
   - git clone https://github.com/JuliaRegistries/General  $(julia -e 'import Pkg; println(joinpath(Pkg.depots1(), "registries", "General"))')  
