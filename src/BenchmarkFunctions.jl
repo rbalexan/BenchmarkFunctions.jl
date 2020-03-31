@@ -26,7 +26,9 @@ export adjiman, ackley_2, ackley_3, bartels_conn, himmelblau, mccormick
 # n-dimensional
 include("ackley_1.jl")
 include("ackley_4.jl")
+include("alpine_1.jl")
+include("alpine_2.jl")
 include("rosenbrock.jl")
-export ackley_1, ackley_4, rosenbrock
+export ackley_1, ackley_4, alpine_1, alpine_2, rosenbrock
 
 end
