@@ -4,7 +4,7 @@ A set of common benchmark functions for testing optimization algorithms in Julia
 [![Build Status](https://travis-ci.com/rbalexan/BenchmarkFunctions.jl.svg?branch=master&kill_cache=1)](https://travis-ci.com/rbalexan/BenchmarkFunctions.jl.svg?branch=master&kill_cache=1)
 [![Coverage Status](https://coveralls.io/repos/github/rbalexan/BenchmarkFunctions.jl/badge.svg?branch=master&kill_cache=1)](https://coveralls.io/github/rbalexan/BenchmarkFunctions.jl?branch=master&kill_cache=1)
 
-![Surface and contour plots of the Himmelblau function](https://github.com/rbalexan/BenchmarkFunctions.jl/blob/master/plots/2d_himmelblau.svg?kill_cache=1)
+![Surface and contour plots of the Himmelblau function](https://github.com/rbalexan/BenchmarkFunctions.jl/blob/master/plots/2d_himmelblau.svg)
 
 ## Getting Started
 To add the package, enter the following into the REPL:
