@@ -43,4 +43,13 @@ end
         "     convex, non-convex\n - modality:          unimodal, multimodal\n - " *
         "separability:      separable, non-separable\n - other:             " *
         "parametric, random\n"
+
+    original_stdout = stdout;
+    (read_pipe, write_pipe) = redirect_stdout();
+    attributes("ackley_1")
+    redirect_stdout(original_stdout);
+    close(write_pipe)
+    @test read(read_pipe, String) == "\nAttributes of `ackley_1` function:\n" *
+        " - `nd`\n - `multimodal`\n - `separable`\n - `differentiable`\n" *
+        " - `continuous`\n - `non-convex`\n"
 end
