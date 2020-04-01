@@ -29,6 +29,8 @@ functionDict = Dict("gramacy_lee"   => Set(["1d", "continuous", "differentiable"
                     "ackley_2"      => Set(["2d", "continuous", "differentiable",     "convex",     "unimodal",   "non-separable"]),
                     "ackley_3"      => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
                     "bartels_conn"  => Set(["2d", "continuous", "non-differentiable", "non-convex", "multimodal", "non-separable"]),
+                    "beale"         => Set(["2d", "continuous", "differentiable",     "non-convex", "unimodal",   "non-separable"]),
+                    "bird"          => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
                     "bohachevsky_1" => Set(["2d", "continuous", "differentiable",     "convex",     "unimodal",   "separable"]),
                     "bohachevsky_2" => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
                     "bohachevsky_3" => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
