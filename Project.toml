@@ -1,7 +1,7 @@
 name = "BenchmarkFunctions"
 uuid = "f6782734-9c9f-4136-a5cf-b2677328accc"
 authors = ["rbalexan <rbalexan@stanford.edu>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
