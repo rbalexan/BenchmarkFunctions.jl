@@ -15,6 +15,7 @@ end
     @test isapprox(minimum(bohachevsky_1( ndgrid(-4  :0.1:4 ,-4 :0.1:4 )))[1],  0.,      atol=0.1)
     @test isapprox(minimum(bohachevsky_2( ndgrid(-4  :0.1:4 ,-4 :0.1:4 )))[1],  0.,      atol=0.1)
     @test isapprox(minimum(bohachevsky_3( ndgrid(-4  :0.1:4 ,-4 :0.1:4 )))[1],  0.,      atol=0.1)
+    @test isapprox(minimum(booth(         ndgrid(-10 :0.1:10,-10:0.1:10)))[1],  0.,      atol=0.1)
     @test isapprox(minimum(brent(         ndgrid(-15 :0.1:-5,-15:0.1:-5)))[1], exp(-200),atol=0.1)
     @test isapprox(minimum(deckkers_aarts(ndgrid(-20 :0.4:20,-20:0.4:20)))[1], -24771,   atol=1e2)
     @test isapprox(minimum(himmelblau(    ndgrid(-4  :0.1:4 ,-4 :0.1:4 )))[1],  0.,      atol=0.1)
@@ -29,6 +30,7 @@ end
     @test isapprox(minimum(alpine_1(      ndgrid(-10:0.1:10,-10:0.1:10)))[1],  0.,       atol=0.1)
     @test isapprox(minimum(alpine_2(      ndgrid(  0:0.1:10), n=1))[1],       -2.808^1,  atol=0.1)
     @test isapprox(minimum(alpine_2(      ndgrid(  0:0.1:10,  0:0.1:10)))[1], -2.808^2,  atol=0.1)
+    @test isapprox(minimum(brown(         ndgrid( -1:0.1: 4, -1:0.1: 4)))[1],  0.,       atol=0.1)
     @test isapprox(minimum(rosenbrock(    ndgrid( -2:0.1: 2, -2:0.1: 2)))[1],  0.,       atol=0.1)
     @test isapprox(minimum(rosenbrock(    ndgrid( -2:0.1: 2, -2:0.1: 2,-2:0.1:2), n=3))[1], 0., atol=0.1)
 end

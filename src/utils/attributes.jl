@@ -34,6 +34,7 @@ functionDict = Dict("gramacy_lee"   => Set(["1d", "continuous", "differentiable"
                     "bohachevsky_1" => Set(["2d", "continuous", "differentiable",     "convex",     "unimodal",   "separable"]),
                     "bohachevsky_2" => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
                     "bohachevsky_3" => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
+                    "booth"         => Set(["2d", "continuous", "differentiable",     "convex",     "unimodal",   "non-separable"]),
                     "brent"         => Set(["2d", "continuous", "differentiable",     "convex",     "unimodal",   "non-separable"]),
                     "deckkers_aarts"=> Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
                     "himmelblau"    => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "separable"]),
@@ -42,6 +43,7 @@ functionDict = Dict("gramacy_lee"   => Set(["1d", "continuous", "differentiable"
                     "ackley_4"      => Set(["nd", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
                     "alpine_1"      => Set(["nd", "continuous", "non-differentiable", "non-convex", "multimodal", "separable"]),
                     "alpine_2"      => Set(["nd", "continuous", "differentiable",     "non-convex", "multimodal", "separable"]),
+                    "brown"         => Set(["nd", "continuous", "differentiable",     "convex",     "unimodal",   "non-separable"]),
                     "rosenbrock"    => Set(["nd", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]))
 
 function attributes(string::AbstractString)
