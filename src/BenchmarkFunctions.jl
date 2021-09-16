@@ -11,9 +11,11 @@ include("ClassicalProblems/utils/utils.jl")
 include("ClassicalProblems/functions/functions.jl")
 
 
-include("CECProblems/RW-MOP-2021/functions/functions.jl")
-#include("CECProblems/RW-MOP-2021/utils/attributes.jl")
-
 # CEC Problems
+# utils
+include("CECProblems/RW-MOP-2021/utils/attributes.jl")
+# functions
+include("CECProblems/RW-MOP-2021/functions/functions.jl")
+
 
 end

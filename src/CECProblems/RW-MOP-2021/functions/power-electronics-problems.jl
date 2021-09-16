@@ -2,6 +2,7 @@
 
 # 30
 function SOPWM_for_3_level_invereters(x)
+    D = length(x)
     ## SOPWM for 3-level Invereters
     m = 0.32;
     s = (-ones(25)) .^ (2:26);
@@ -30,6 +31,7 @@ end
 
 # 31
 function SOPWM_for_5_level_Inverters(x) 
+    D = length(x)
     ## SOPWM for 5-level Inverters
     m = 0.32;
     s = [1,-1,1,1,-1,1,-1,1,-1,-1,1,-1,1,1,-1,1,-1,1,-1,-1,1,-1,1,1,-1];
@@ -57,6 +59,7 @@ end
 
 # 32
 function SOPWM_for_7_level_inverters(x)
+    D = length(x)
     ## SOPWM for 7-level Inverters
     m = 0.36;
     s = [1,-1,1,1,1,-1,-1,-1,1,1,-1,-1,1,1,1,-1,-1,-1,1,1,-1,-1,1,1,1];
@@ -84,6 +87,7 @@ end
 
 # 33
 function SOPWM_for_9_level_inverters(x)
+    D = length(x)
     ## SOPWM for 9-level Inverters
     m = 0.32;
     s = [1,1,1,1,-1,1,-1,-1,-1,1,-1,-1,1,1,1,1,-1,1,-1,-1,-1,1,-1,-1,1,1,1,1,-1,1];
@@ -113,6 +117,7 @@ end
 
 # 34
 function SOPWM_for_11_level_inverters(x) 
+    D = length(x)
     ## SOPWM for 11-level Inverters
     m = 0.3333;
     s = [1,-1,1,1,1,-1,-1,-1,1,1,1,1,-1,-1,1,-1,-1,-1,1,1,1,1,-1,1,1,-1,-1,1,-1,-1];
@@ -141,6 +146,7 @@ end
 
 # 35
 function SOPWM_for_13_level_inverters(x) 
+    D = length(x)
     ## SOPWM for 13-level Inverters
     m = 0.32;
     s = [1,1,1,-1,1,-1,1,-1,1,1,1,1,-1,-1,-1,-1,1,-1,1,-1,1,1,1,1,-1,-1,-1,1,-1,1];

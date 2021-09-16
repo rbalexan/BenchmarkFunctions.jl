@@ -1,5 +1,8 @@
 # Meachnical problems
 
+# force XX.5 -> XX + 1
+round5(x) = floor(Int, x + 0.5)
+
 # 1
 function pressure_vessal(x)
     ## Pressure Vessal Problems
@@ -379,7 +382,7 @@ function spring_design(x)
           0.072, 0.080, 0.092, 0.0105, 0.120, 0.135, 0.148,
           0.162, 0.177, 0.192, 0.207, 0.225, 0.244, 0.263,
           0.283, 0.307, 0.331, 0.362,0.394,0.4375,0.500];
-    x3 = d[max(1,min(42,round5(Int, x[3])))];# x3 = x3(:);
+    x3 = d[max(1,min(42,round5(x[3])))];# x3 = x3(:);
     ## constants
     cf = (4 .* x2 ./ x3-1) ./ (4 .* x2 ./ x3-4)+0.615 .* x3 ./ x2;
     K  = (11.5 .* 10 .^ 6 .* x3 .^ 4) ./ (8 .* x1 .* x2 .^ 3);

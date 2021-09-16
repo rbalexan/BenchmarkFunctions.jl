@@ -4,75 +4,103 @@ CEC2021 Real world multi-objective Constrained Optimization Test Suite
 See https://github.com/P-N-Suganthan/2021-RW-MOP
 =#
 
-const functionDict_RWMOP_2021 = Dict(
-                                     # Mechanical problems
-                                     "pressure_vessal"                              => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "vibrating_platform"                           => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "two_bar_Truss_design_problems"                => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "weldan_beam_design"                           => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "disc_brake_design"                            => Set([ "mechanics", "real-world", "multiobjective"]), 
-                                     "speed_reducer_design"                         => Set([ "mechanics", "real-world", "multiobjective"]), 
-                                     "gear_train_design"                            => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "car_side_impact_design"                       => Set([ "mechanics", "real-world", "multiobjective"]), 
-                                     "four_bar_plane_truss"                         => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "two_bar_plane_truss"                          => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "water_tesource_management"                    => Set([ "mechanics", "real-world", "multiobjective"]), 
-                                     "simply_supported_I_beam_design"               => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "gear_box_design"                              => Set([ "mechanics", "real-world", "multiobjective"]), 
-                                     "multiple_disk_clutch_brake_design"            => Set([ "mechanics", "real-world", "multiobjective"]), 
-                                     "spring_design"                                => Set([ "mechanics", "real-world", "multiobjective"]), 
-                                     "cantilever_beam_design"                       => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "bulk_carriers_design"                         => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "front_rail_design"                            => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "multi_product_batch_plant"                    => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "hydro_static_thrust_bearing_design"           => Set([ "mechanics", "real-world", "multiobjective"]),
-                                     "crash_energy_management_for_high_speed_train" => Set([ "mechanics", "real-world", "multiobjective"]), 
 
-                                     # chemical problems
-                                     "haverlys_pooling_problem"      => Set([ "chemistry", "real-world", "multiobjective"]),
-                                     "reactor_network_design"        => Set([ "chemistry", "real-world", "multiobjective"]),
-                                     "heat_exchanger_network_design" => Set([ "chemistry", "real-world", "multiobjective"]), 
+const NAME_OF_PROBLEMS_RW_MOP_2021 = [
+                       # Mechanical problems
+                       "pressure_vessal", 
+                       "vibrating_platform",
+                       "two_bar_Truss_design_problems", 
+                       "weldan_beam_design",
+                       "disc_brake_design", 
+                       "speed_reducer_design",
+                       "gear_train_design", 
+                       "car_side_impact_design",
+                       "four_bar_plane_truss",
+                       "two_bar_plane_truss", 
+                       "water_tesource_management", 
+                       "simply_supported_I_beam_design",
+                       "gear_box_design", 
+                       "multiple_disk_clutch_brake_design", 
+                       "spring_design", 
+                       "cantilever_beam_design",
+                       "bulk_carriers_design",
+                       "front_rail_design", 
+                       "multi_product_batch_plant", 
+                       "hydro_static_thrust_bearing_design",
+                       "crash_energy_management_for_high_speed_train",
 
-                                     # Process Design and Synthesis
-                                     "process_synthesis"             => Set([ "process-design-and-synthesis", "real-world", "multiobjective"]),
-                                     "process_sythesis_and_design"   => Set([ "process-design-and-synthesis", "real-world", "multiobjective"]),
-                                     "process_flow_sheeting_problem" => Set([ "process-design-and-synthesis", "real-world", "multiobjective"]),
-                                     "two_reactor_problem"           => Set([ "process-design-and-synthesis", "real-world", "multiobjective"]), 
-                                     "process_synthesis_problem"     => Set([ "process-design-and-synthesis", "real-world", "multiobjective"]),
+                       # chemical problems
+                       "haverlys_pooling_problem", 
+                       "reactor_network_design", 
+                       "heat_exchanger_network_design",
 
-                                     # Power electronics Problem   
-                                     "SOPWM_for_3_level_invereters"  => Set([ "power-electronics", "real-world", "multiobjective"]),
-                                     "SOPWM_for_5_level_Inverters"   => Set([ "power-electronics", "real-world", "multiobjective"]), 
-                                     "SOPWM_for_7_level_inverters"   => Set([ "power-electronics", "real-world", "multiobjective"]),
-                                     "SOPWM_for_9_level_inverters"   => Set([ "power-electronics", "real-world", "multiobjective"]),
-                                     "SOPWM_for_11_level_inverters"  => Set([ "power-electronics", "real-world", "multiobjective"]), 
-                                     "SOPWM_for_13_level_inverters"  => Set([ "power-electronics", "real-world", "multiobjective"]), 
+                       # Process Design and Synthesis
+                       "process_synthesis",
+                       "process_sythesis_and_design",
+                       "process_flow_sheeting_problem",
+                       "two_reactor_problem",
+                       "process_synthesis_problem",
 
-                                     # Power System Problems
-                                     "sizing_of_single_phase_distributed_generation_1"            => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "sizing_of_single_phase_distributed_generation_2"            => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "sizing_of_single_phase_distributed_generation_3"            => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "sizing_of_single_phase_distributed_generation_4"            => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "active_and_reactive_power_loss"                             => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "optimal_power_flow_1"                                       => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "optimal_power_flow_2"                                       => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "optimal_power_flow_3"                                       => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "optimal_power_flow_4"                                       => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "optimal_power_flow_5"                                       => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "optimal_power_flow_6"                                       => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "minimization_of_active_power_loss_in_islanded_microgrids_1" => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "minimization_of_active_power_loss_in_islanded_microgrids_2" => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "minimization_of_active_power_loss_in_islanded_microgrids_3" => Set([ "power-systems", "real-world", "multiobjective"]),
-                                     "power_distribution_system_planning"                         => Set([ "power-systems", "real-world", "multiobjective"])
-                                    )
+                       # Power electronics Problem 
+                       "SOPWM_for_3_level_invereters", 
+                       "SOPWM_for_5_level_Inverters",
+                       "SOPWM_for_7_level_inverters",
+                       "SOPWM_for_9_level_inverters",
+                       "SOPWM_for_11_level_inverters", 
+                       "SOPWM_for_13_level_inverters", 
+
+                       "sizing_of_single_phase_distributed_generation_1", 
+                       "sizing_of_single_phase_distributed_generation_2", 
+                       "sizing_of_single_phase_distributed_generation_3", 
+                       "sizing_of_single_phase_distributed_generation_4", 
+                       "active_and_reactive_power_loss",
+                       "optimal_power_flow_1",
+                       "optimal_power_flow_2",
+                       "optimal_power_flow_3",
+                       "optimal_power_flow_4",
+                       "optimal_power_flow_5",
+                       "optimal_power_flow_6",
+                       "minimization_of_active_power_loss_in_islanded_microgrids_1",
+                       "minimization_of_active_power_loss_in_islanded_microgrids_2",
+                       "minimization_of_active_power_loss_in_islanded_microgrids_3",
+                       "power_distribution_system_planning"
+                      ]
+
+function gen_dict()
+    # problems_in_issue = [21, 3, 5, 6, 15]
+
+    properties = vcat(
+                      # Mechanical problems (21)
+                      [Set([ "mechanics", "real-world", "multiobjective"]) for i in 1:21],
+                      # chemical problems (3)
+                      [Set([ "chemistry", "real-world", "multiobjective"]) for i in 1:3],
+                      # Process Design and Synthesis (5)
+                      [Set([ "process-design-and-synthesis", "real-world", "multiobjective"]) for i in 1:5],
+                      # Power electronics Problem  (6) 
+                      [Set([ "power-electronics", "real-world", "multiobjective"]) for i in 1:6],
+                      # Power System Problems (15)
+                      [Set([ "power-systems", "real-world", "multiobjective"]) for i in 1:15]
+                     )
+
+    dict = Dict{String, Set{String}}()
+
+    for (name, property) in zip(NAME_OF_PROBLEMS_RW_MOP_2021, properties)
+        dict[name] = property
+    end
+
+    dict
+end
+
+const functionDict_RWMOP_2021 = gen_dict()
 
 
 
-function RW_MOP_bounds(prob_k::Int)
+function RW_MOP_bounds(prob_k::Int, dimension = 0)
 
+    n = dimension
 
     ## range
-    # bound constraint definitions for all 18 test functions
+    # bound constraint definitions for all 50 test functions
     xmin  = [ zeros(1) for i in 1:50 ]
     xmax  = [ zeros(1) for i in 1:50 ]
     xmin[1]    = [0.51,0.51,10,10];
@@ -192,11 +220,19 @@ function RW_MOP_bounds(prob_k::Int)
 
     #nadir = nadir_points[prob_k]
 
-    return xmin_, xmax_, nadir
+    return xmin_, xmax_
 end
 
 
-function get_RW_MOP_config(fnum)
+function get_RW_MOP_config(function_name::AbstractString)
+    fnum = findfirst( s -> function_name == s, NAME_OF_PROBLEMS_RW_MOP_2021)
+
+    isnothing(fnum) && error("$function_name is not implemented yet or does not exist.")
+
+    get_RW_MOP_config(fnum)
+end
+
+function get_RW_MOP_config(fnum::Int)
     @assert 1 <= fnum <= 50
 
     problems_dimension = [4,5,3,4,4,7,4,7,4,2,3,4,7,5,3,2,6,3,10,4,6,9,6,9,2,3,3,7,7,25,
@@ -269,18 +305,42 @@ function get_RW_MOP_config(fnum)
 
 
     nadir = nadir_points[fnum]
-    problem_name = keys(functionDict_RWMOP_2021)[fnum]
+    #problem_name = keys(functionDict_RWMOP_2021)[fnum]
 
-    xmin, xmax= RW_MOP_bounds(fnum)
+    xmin, xmax= RW_MOP_bounds(fnum, problems_dimension[fnum])
 
-    return Dict(:problem    => problem_name,
-                :objectives => fn,
-                :dimensions => n,
-                :nadir      => nadir,
-                :gn         => inequility_constrains[fnum],
-                :hn         => equility_constrains[fnum],
-                :xmin       => xmin,
-                :xmax       => xmax)
+    return Dict(:function => NAME_OF_PROBLEMS_RW_MOP_2021[fnum],
+                :fn    => problems_objectives[fnum],
+                :n     => problems_dimension[fnum],
+                :nadir => nadir,
+                :gn    => inequility_constrains[fnum],
+                :hn    => equility_constrains[fnum],
+                :xmin  => xmin,
+                :xmax  => xmax)
 
 
 end
+
+
+function get_RW_MOP_problem(function_name::AbstractString)
+    fnum = findfirst( s -> function_name == s, NAME_OF_PROBLEMS_RW_MOP_2021)
+
+    isnothing(fnum) && error("$function_name is not implemented yet or does not exist.")
+
+    return get_RW_MOP_problem(fnum)
+    
+end
+
+function get_RW_MOP_problem(fnum::Int)
+
+    !(1 <= fnum <= 50) && error("Problem $fnum is not implemented yet or does not exist.")
+
+    # objetive function x -> f(x)
+    f = eval(Symbol(NAME_OF_PROBLEMS_RW_MOP_2021[fnum]))
+
+    # problem configuration
+    conf = get_RW_MOP_config(fnum)
+
+    return f, conf
+end
+

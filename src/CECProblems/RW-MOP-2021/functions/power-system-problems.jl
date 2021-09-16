@@ -1206,6 +1206,7 @@ end
 # 50
 function power_distribution_system_planning(x)
     ## Power Distribution System Planning
+    D = length(x)
     N = D;
     P = x;
     PD = 1200;
