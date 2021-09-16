@@ -27,3 +27,34 @@ using BenchmarkFunctions
 
 plot("himmelblau", -4:0.1:4, -4:0.1:4)
 ```
+
+## Complicated Benchmark Functions
+
+This package also include some complicated benchmark functions.
+
+
+### Real-World Multiobjective Constrained Optimization Problems
+
+The Competition on Real-World Multiobjective Constrained Optimization 2021
+[(RW-MOP-2021)](https://doi.org/10.1016/j.swevo.2021.100961) presented 50 benchmark functions
+from real-world problems for testing multi-objective optimization algorithms.
+Those problems are available here.
+
+```
+julia> using BenchmarkFunctions
+
+julia> f, conf = get_RW_MOP_problem(2); # problem 2
+
+julia> conf
+Dict{Symbol, Any} with 8 entries:
+  :xmin     => [0.05, 0.2, 0.2, 0.35, 3.0]
+  :xmax     => [0.5, 0.5, 0.6, 0.5, 6.0]
+  :n        => 5
+  :function => "vibrating_platform"
+  :gn       => 5
+  :hn       => 0
+  :fn       => 2
+  :nadir    => [-0.00127461, 318.255]
+```
+
+Use `BenchmarkFunctions.NAME_OF_PROBLEMS_RW_MOP_2021` for full list of problems.
