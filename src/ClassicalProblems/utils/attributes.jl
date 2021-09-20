@@ -18,11 +18,13 @@ function attributes()
     println(" - convexity:         convex, non-convex")
     println(" - modality:          unimodal, multimodal")
     println(" - separability:      separable, non-separable")
+    #println(" - application:       mechanics, chemistry, process-design-and-synthesis, power-electronics, power-systems")
     println(" - other:             parametric, random")
 
     return
 
 end
+
 
 functionDict = Dict("gramacy_lee"   => Set(["1d", "continuous", "differentiable",     "non-convex", "multimodal"]),
                     "adjiman"       => Set(["2d", "continuous", "differentiable",     "non-convex", "multimodal", "non-separable"]),
